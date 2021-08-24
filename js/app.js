@@ -1,7 +1,25 @@
 "use strict";
 
 $(document).ready(function () {
-  AOS.init();
+  AOS.init(); // accordion
+
+  $(function () {
+    $(".accordion__item .accordion__title-wrap").on("click", function (e) {
+      e.preventDefault();
+      var $this = $(this);
+
+      if (!$this.hasClass("active")) {
+        $(".accordion__content").slideUp(400);
+        $(".accordion__item .accordion__title-wrap").removeClass("active");
+        $(".accordion__item").removeClass("active");
+      }
+
+      $this.toggleClass("active");
+      $this.parent().toggleClass("active");
+      $this.next().slideToggle();
+    });
+  }); //anchor
+
   $('a[href^="#"]').click(function () {
     var href = $.attr(this, 'href');
     $('.js-burger').removeClass('active');
@@ -9,9 +27,9 @@ $(document).ready(function () {
     $('body').removeClass('overflow');
     $('html, body').animate({
       scrollTop: $(href).offset().top
-    }, 500);
+    }, 1000);
     return false;
-  });
+  }); //burger
 
   if (document.querySelector('.js-burger')) {
     var BURGER = document.querySelector('.js-burger');
