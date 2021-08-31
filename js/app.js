@@ -4,18 +4,18 @@ $(document).ready(function () {
   AOS.init(); // accordion
 
   $(function () {
-    $(".accordion__item .accordion__title-wrap").on("click", function (e) {
+    $('.accordion__item .accordion__title-wrap').on('click', function (e) {
       e.preventDefault();
       var $this = $(this);
 
-      if (!$this.hasClass("active")) {
-        $(".accordion__content").slideUp(400);
-        $(".accordion__item .accordion__title-wrap").removeClass("active");
-        $(".accordion__item").removeClass("active");
+      if (!$this.hasClass('active')) {
+        $('.accordion__content').slideUp(400);
+        $('.accordion__item .accordion__title-wrap').removeClass('active');
+        $('.accordion__item').removeClass('active');
       }
 
-      $this.toggleClass("active");
-      $this.parent().toggleClass("active");
+      $this.toggleClass('active');
+      $this.parent().toggleClass('active');
       $this.next().slideToggle();
     });
   }); //anchor
@@ -42,7 +42,22 @@ $(document).ready(function () {
       NAV.classList.toggle(ACTIVE);
       BODY.classList.toggle(OVERFLOW);
     });
-  }
+  } // slider
+
+
+  var swiper = new Swiper('.js-item-slider', {
+    loop: true,
+    autoplay: {
+      delay: 400,
+      disableOnInteraction: false
+    },
+    autoplayDisableOnInteraction: true,
+    slidersPerView: 1,
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true
+    }
+  });
 }); //window height
 
 var vh = window.innerHeight * 0.01;
@@ -54,48 +69,48 @@ window.addEventListener('resize', function () {
 var arrOfData = [{
   counter: 1,
   setData: [{
-    srcImg: "images/h1-1.jpg",
-    textBtn: "SHIBA C41-V"
+    srcImg: 'images/o01.png',
+    textBtn: 'SHIBA C42-V'
   }, {
-    srcImg: "images/h1-2.jpg",
-    textBtn: "SHIBA C37-V"
+    srcImg: 'images/o02.png',
+    textBtn: 'SHIBA C37-V'
   }, {
-    srcImg: "images/h1-3.jpg",
-    textBtn: "SHIBA C43-V"
+    srcImg: 'images/o03.png',
+    textBtn: 'SHIBA C43-V'
   }]
 }, {
   counter: 1,
   setData: [{
-    srcImg: "images/h2-1.jpg",
-    textBtn: "SHIBA C45-V"
+    srcImg: 'images/o11.png',
+    textBtn: 'SHIBA C41-V'
   }, {
-    srcImg: "images/h2-2.jpg",
-    textBtn: "SHIBA C44-V"
+    srcImg: 'images/o12.png',
+    textBtn: 'SHIBA C44-V'
   }, {
-    srcImg: "images/h2-3.jpg",
-    textBtn: "SHIBA C38-V"
+    srcImg: 'images/o13.png',
+    textBtn: 'SHIBA C38-V'
   }]
 }, {
   counter: 1,
   setData: [{
-    srcImg: "images/h3-1.jpg",
-    textBtn: "SHIBA C39-V"
+    srcImg: 'images/o21.png',
+    textBtn: 'SHIBA C39-V'
   }, {
-    srcImg: "images/h3-2.jpg",
-    textBtn: "SHIBA C42-V"
+    srcImg: 'images/o22.png',
+    textBtn: 'SHIBA C42-V'
   }, {
-    srcImg: "images/h3-3.jpg",
-    textBtn: "SHIBA C36-V"
+    srcImg: 'images/o23.png',
+    textBtn: 'SHIBA C36-V'
   }]
 }];
-var cardWrap = document.querySelector(".card-wrap");
-cardWrap.addEventListener("click", function (event) {
-  if (!event.target.closest(".card__img-wrap") && !event.target.closest(".card__link")) {
+var cardWrap = document.querySelector('.card-wrap');
+cardWrap.addEventListener('click', function (event) {
+  if (!event.target.closest('.card__img-wrap') && !event.target.closest('.card__link')) {
     return;
   }
 
   var indexCard = Array.from(cardWrap.children).findIndex(function (item) {
-    return item === event.target.closest(".card");
+    return item === event.target.closest('.card');
   });
   var neededData = arrOfData[indexCard];
 
@@ -104,10 +119,10 @@ cardWrap.addEventListener("click", function (event) {
   }
 
   var targetCard = Array.from(cardWrap.children).find(function (item) {
-    return item === event.target.closest(".card");
+    return item === event.target.closest('.card');
   });
-  var cardImg = targetCard.querySelector("img");
-  var cardBtn = targetCard.querySelector("button");
+  var cardImg = targetCard.querySelector('img');
+  var cardBtn = targetCard.querySelector('button');
   cardImg.src = neededData.setData[neededData.counter].srcImg;
   cardBtn.textContent = neededData.setData[neededData.counter].textBtn;
   neededData.counter += 1;
