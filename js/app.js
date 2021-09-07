@@ -386,7 +386,7 @@ function init() {
     walletconnect: {
       "package": WalletConnectProvider,
       options: {
-        infuraId: "d4996cc8f4f94971870a3f7b9448a5b4"
+        infuraId: "7c125f9ad4be41b6b704e0125a60ffa1"
       }
     }
   };
@@ -642,8 +642,8 @@ var cost = '50000000000000000';
 var contractAddress = '0xd38592f63f4f90ca3C508b5B7531aC74cDcE124A';
 
 var getMinted = function getMinted() {
-  var web3 = new Web3(new Web3.providers.HttpProvider( // 'https://rinkeby.infura.io/v3/d4996cc8f4f94971870a3f7b9448a5b4',
-  'https://mainnet.infura.io/v3/d4996cc8f4f94971870a3f7b9448a5b4'));
+  var web3 = new Web3(new Web3.providers.HttpProvider( // 'https://rinkeby.infura.io/v3/7c125f9ad4be41b6b704e0125a60ffa1',
+  'https://mainnet.infura.io/v3/7c125f9ad4be41b6b704e0125a60ffa1'));
   var contract = new web3.eth.Contract(abi, contractAddress);
   contract.methods.totalSupply().call().then(function (result) {
     $('.total-minted').text("".concat(result, " / 10000"));
@@ -672,8 +672,8 @@ function _mint() {
             // if (!window.ethereum) return
             // var web3 = new Web3(
             //   new Web3.providers.HttpProvider(
-            //     // 'https://rinkeby.infura.io/v3/d4996cc8f4f94971870a3f7b9448a5b4',
-            //     'https://mainnet.infura.io/v3/d4996cc8f4f94971870a3f7b9448a5b4'
+            //     // 'https://rinkeby.infura.io/v3/7c125f9ad4be41b6b704e0125a60ffa1',
+            //     'https://mainnet.infura.io/v3/7c125f9ad4be41b6b704e0125a60ffa1'
             //   ),
             // )
             web3 = new Web3(provider); // eslint-disable-next-line @typescript-eslint/no-unused-vars
