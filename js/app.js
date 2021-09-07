@@ -415,9 +415,10 @@ window.addEventListener('load', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/reg
       switch (_context10.prev = _context10.next) {
         case 0:
           init();
+          getMinted();
           document.querySelector(".js-popup-open").addEventListener("click", tryConnect); // document.querySelector("#btn-disconnect").addEventListener("click", onDisconnect);
 
-        case 2:
+        case 3:
         case "end":
           return _context10.stop();
       }
@@ -641,7 +642,8 @@ var cost = '50000000000000000';
 var contractAddress = '0xd38592f63f4f90ca3C508b5B7531aC74cDcE124A';
 
 var getMinted = function getMinted() {
-  var web3 = new Web3(provider);
+  var web3 = new Web3(new Web3.providers.HttpProvider( // 'https://rinkeby.infura.io/v3/d4996cc8f4f94971870a3f7b9448a5b4',
+  'https://mainnet.infura.io/v3/d4996cc8f4f94971870a3f7b9448a5b4'));
   var contract = new web3.eth.Contract(abi, contractAddress);
   contract.methods.totalSupply().call().then(function (result) {
     $('.total-minted').text("".concat(result, " / 10000"));
