@@ -219,7 +219,7 @@ $(document).ready( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRunti
                         totalToMint = $('.mint-input').val();
 
                         if (!totalToMint) {
-                          totalToMint = 3;
+                          totalToMint = 1;
                         } else if (+totalToMint + 1 > 20) {
                           totalToMint = 20;
                         } else totalToMint++;
@@ -315,8 +315,8 @@ $(document).ready( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRunti
                         e.preventDefault();
                         totalToMint = $('.mint-input').val();
 
-                        if (!totalToMint || +totalToMint - 1 < 3) {
-                          totalToMint = 3;
+                        if (!totalToMint || +totalToMint - 1 < 1) {
+                          totalToMint = 1;
                         } else totalToMint--;
 
                         $('.mint-input').val(totalToMint);
@@ -345,8 +345,8 @@ $(document).ready( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRunti
                       e.preventDefault();
                       totalToMint = $('.mint-input').val();
 
-                      if (totalToMint < 3) {
-                        $('.mint-input').val(3);
+                      if (totalToMint < 1) {
+                        $('.mint-input').val(1);
                       }
 
                       if (totalToMint > 20) {
@@ -710,7 +710,7 @@ function _mint() {
           case 20:
             _context16.t2 = _context16.sent[0];
             _context16.t3 = bigInt(cost).multiply(bigInt(totalToMint)).toString(16);
-            _context16.t4 = contract.methods.presaleShibas(totalToMint).encodeABI();
+            _context16.t4 = contract.methods.mintShibas(totalToMint).encodeABI();
             transactionParameters = {
               to: _context16.t1,
               from: _context16.t2,
