@@ -646,12 +646,12 @@ var getMinted = function getMinted() {
   'https://mainnet.infura.io/v3/7c125f9ad4be41b6b704e0125a60ffa1'));
   var contract = new web3.eth.Contract(abi, contractAddress);
   contract.methods.totalSupply().call().then(function (result) {
-    $('.total-minted').text("".concat(result, " / 10000"));
+    $('.total-minted').text("".concat(result, " / 5000"));
   });
   setInterval(function () {
     contract.methods.totalSupply().call().then(function (result) {
       console.log(result);
-      $('.total-minted').text("".concat(result, " / 10000"));
+      $('.total-minted').text("".concat(result, " / 5000"));
     });
   }, 300000);
 };
